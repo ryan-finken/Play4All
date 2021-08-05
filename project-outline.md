@@ -9,18 +9,27 @@
 2. Features
 
 	a. Register/Login: Users will be able to register for an account and login to view the app. All pages will be restricted to logged in users.
+
 	b. Venue Calendar: Users will be able to view all the upcoming events for a particular venue in a calendar.
+
 	c. Event search/filtering: Users will be able to search for/filter events in a particular venue. For instance, a novice athlete could perform a text search for “beginner” to find events geared towards their skill level. A hockey player would be able to filter out figure skating events at an ice rink.
+
 	d. Create Events: Administrators for a particular venue will be able to create new events in the Venue Calendar.
+
 	e. Register for Events: Users will be able to register for events in the Venue Calendar.
 
 3. Technologies
 
 	a. Java/SpringBoot
+
 	b. TypeScript/Angular
+
 	c. MySQL/MySQL Workbench
+
 	d. Hibernate
+
 	e. HTML/CSS
+	
 	f. Bootstrap
 
 4. What we’ll have to learn
