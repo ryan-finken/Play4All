@@ -35,3 +35,6 @@
 4. What we’ll have to learn
 
 	For this project, our group will have to learn how to connect a SpringBoot back end to an angular front end. The most challenging part may be getting a calendar up and running on a website, and learning how to add events, edit them, and display them correctly.
+	
+5. Project Tracker Trello Link
+https://trello.com/b/Vc5hvk53/liftoff	
