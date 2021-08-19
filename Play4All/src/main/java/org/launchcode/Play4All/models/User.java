@@ -3,9 +3,11 @@ package org.launchcode.Play4All.models;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-public class User {
+@Entity
+public class User extends AbstractEntity{
     @NotNull
     private String username;
 
