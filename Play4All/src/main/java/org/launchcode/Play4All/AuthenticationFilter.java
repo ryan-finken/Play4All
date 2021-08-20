@@ -23,9 +23,20 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
     private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/css", "/index");
 
-    private static boolean isWhitelisted(String path) {
-        for (String pathRoot : whitelist) {
-            if (path.startsWith(pathRoot)) {
+    private static final List<String> blacklist = Arrays.asList("/admin");
+
+   // private static boolean isWhitelisted(String path) {
+   //     for (String pathRoot : whitelist) {
+   //         if (path.startsWith(pathRoot)) {
+   //             return true;
+   //         }
+   //     }
+    //    return false;
+   // }
+
+    private static boolean notBlackListed(String path){
+        for (String pathRoot : blacklist){
+            if (!path.startsWith(pathRoot)){
                 return true;
             }
         }
@@ -37,7 +48,11 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
                              HttpServletResponse response,
                              Object handler) throws IOException {
 
-        if (isWhitelisted(request.getRequestURI())) {
+      //  if (isWhitelisted(request.getRequestURI())) {
+       //     return true;
+      //  }
+
+        if (notBlackListed(request.getRequestURI())){
             return true;
         }
 
