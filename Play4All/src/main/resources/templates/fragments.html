@@ -10,9 +10,10 @@
 
 </head>
 <body th:fragment="body">
-<h1>Play4All</h1>
 <header th:fragment="header">
-    <h1 th:text="${title}">Play4All</h1>
+    <article>
+        <img th:src = "@{/images/Play4All.jpg}"/>
+    </article>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/">Play4All Home Page</a></li>
         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
