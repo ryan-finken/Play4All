@@ -12,11 +12,19 @@
     </tr>
     <tr>
         <th>Description</th>
-        <td th:text="${event.eventDetails.description}"></td>
+        <td th:text="${event.description}"></td>
     </tr>
     <tr>
         <th>Contact Email</th>
         <td th:text="${event.contactEmail}"></td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td th:text="${event.date}"></td>
+    </tr>
+    <tr>
+        <th>Time</th>
+        <td th:text="${event.time}"></td>
     </tr>
 </table>
 

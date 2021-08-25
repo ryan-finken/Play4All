@@ -19,8 +19,8 @@
         <th>Event Name</th>
     </tr>
     </thead>
-    <tr th:each="event : ${events}">
-        <td><a th:href="" th:text="${event.name}"></a></td>
+    <tr th:each="event : ${event}">
+        <td><a th:href="'event?eventId=' + ${event.id}" th:text="${event.name}"></a></td>
     </tr>
 </table>
 
