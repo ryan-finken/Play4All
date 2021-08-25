@@ -4,6 +4,8 @@ import org.launchcode.Play4All.Controllers.AuthenticationController;
 import org.launchcode.Play4All.data.UserRepository;
 import org.launchcode.Play4All.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.AsyncHandlerInterceptor;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,13 +27,13 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
     private static final List<String> blacklist = Arrays.asList("/admin");
 
-   // private static boolean isWhitelisted(String path) {
-   //     for (String pathRoot : whitelist) {
-   //         if (path.startsWith(pathRoot)) {
-   //             return true;
-   //         }
-   //     }
-    //    return false;
+    //private static boolean isWhitelisted(String path) {
+     //   for (String pathRoot : whitelist) {
+    //        if (path.startsWith(pathRoot)) {
+    //            return true;
+    //        }
+     //   }
+     //   return false;
    // }
 
     private static boolean notBlackListed(String path){
@@ -48,9 +50,9 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
                              HttpServletResponse response,
                              Object handler) throws IOException {
 
-      //  if (isWhitelisted(request.getRequestURI())) {
+       // if (isWhitelisted(request.getRequestURI())) {
        //     return true;
-      //  }
+       // }
 
         if (notBlackListed(request.getRequestURI())){
             return true;

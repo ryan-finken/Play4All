@@ -50,6 +50,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO, Errors errors, HttpServletRequest request, Model model){
 
+
         if(errors.hasErrors()){
             model.addAttribute("title", "Register");
             return "register";
@@ -61,6 +62,13 @@ public class AuthenticationController {
             model.addAttribute("title", "Register");
             return "register";
         }
+      //  String existingEmail = userRepository.findByEmail(registerFormDTO.getEmail());
+
+      //  if(existingEmail !=null){
+       //     errors.rejectValue("email", "email.alreadyexists", "A user with this email already exists");
+       //     model.addAttribute("title", "Register");
+       //     return "register";
+      //  }
 
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
@@ -70,11 +78,11 @@ public class AuthenticationController {
             return "register";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getEmail(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:/login";
+        return "redirect:";
        // return "login";
 
     }
@@ -103,6 +111,13 @@ public class AuthenticationController {
             model.addAttribute("title", "Log In");
             return "login";
         }
+
+       // String theEmail = userRepository.findByEmail(loginFormDTO.getEmail());
+      //  if(theEmail == null) {
+      //      errors.rejectValue("email", "email.invalid", "The given email is invalid");
+      //      model.addAttribute("title", "Log In");
+      //      return "login";
+      //  }
 
         String password = loginFormDTO.getPassword();
 
