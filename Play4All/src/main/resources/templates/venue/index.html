@@ -11,6 +11,7 @@
 <p>Description</p>
 <p>Administrators</p>
 <p>Contact Info</p>
+<p>Create an Event <a href="/events/create">Create</a></p>
 
 <table class="table table-striped">
     <thead>
@@ -19,7 +20,7 @@
     </tr>
     </thead>
     <tr th:each="event : ${events}">
-        <td><a th:href="'/events/detail?eventId=' + ${event.id}" th:text="${event.name}"></a></td>
+        <td><a th:href="" th:text="${event.name}"></a></td>
     </tr>
 </table>
 

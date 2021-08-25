@@ -1,9 +1,6 @@
 package org.launchcode.Play4All.models;
 
-import jdk.jfr.Event;
-
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ public class Venue extends AbstractEntity{
     private String description;
 
     @OneToMany
-    private List<Events> events = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 
     public Venue(){}
 
@@ -41,10 +38,10 @@ public class Venue extends AbstractEntity{
         this.description = description;
     }
 
-    public List<Events> getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
-    public void addEvent(Events event){
+    public void addEvent(Event event){
         this.events.add(event);
     }
     @Override
