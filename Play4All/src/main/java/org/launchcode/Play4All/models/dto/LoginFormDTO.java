@@ -1,5 +1,6 @@
 package org.launchcode.Play4All.models.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,6 +10,11 @@ public class LoginFormDTO {
     @NotBlank
     @Size(min=3, max=20, message= "Invalid username. Must be between 3 and 20 characters")
     private String username;
+
+    //@NotNull
+    //@NotBlank
+    @Email
+    private String email;
 
     @NotNull
     @NotBlank
@@ -20,6 +26,14 @@ public class LoginFormDTO {
     }
     public void setUsername(String username){
         this.username= username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
