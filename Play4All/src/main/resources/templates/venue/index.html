@@ -6,11 +6,9 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h1>VENUE</h1>
+<h1 th:text="${venue.name}"></h1>
+<p th:text="${venue.description}"></p>
 
-<p>Description</p>
-<p>Administrators</p>
-<p>Contact Info</p>
 
 <table class="table table-striped">
     <thead>
