@@ -20,10 +20,10 @@ public class VenueController {
 
     @GetMapping
     public String displayVenue(@RequestParam Integer venueId, Model model) {
-            model.addAttribute("title", "Venue");
-            Optional<Venue> result = venueRepository.findById(venueId);
-            Venue venue = result.get();
-            model.addAttribute("venue", venue);
+        model.addAttribute("title", "Venue");
+        Optional<Venue> result = venueRepository.findById(venueId);
+        Venue venue = result.get();
+        model.addAttribute("venue", venue);
 
         return "venue/index";
     }
