@@ -25,6 +25,18 @@
         <p class="error" th:errors="${event.email}"></p>
     </div>
     <div class="form-group">
+        <label>Date
+            <input type="date" th:field="${event.date}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.date}"></p>
+    </div>
+    <div class="form-group">
+        <label>Time
+            <input type="time" th:field="${event.time}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.time}"></p>
+    </div>
+    <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
     </div>
 </form>

@@ -43,4 +43,9 @@ public class Event extends AbstractEntity{
     public void setVenue(Venue venue) {
         this.venue = venue;
     }
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }
