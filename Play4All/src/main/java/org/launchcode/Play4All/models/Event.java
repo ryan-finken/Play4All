@@ -1,23 +1,40 @@
 package org.launchcode.Play4All.models;
 
+//import org.apache.tomcat.jni.Time;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Date;
+
 @Entity
 public class Event extends AbstractEntity{
 
-    @ManyToOne
-    private Venue venue;
 
     private String name;
 
     private String description;
 
+    private String email;
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date date;
+
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime time;
+
+
+
     public Event(){ }
 
-    public Event(String name, String description, Venue venue){
+    public Event(String name, String description, String email, Date date, LocalTime time){
         this.name=name;
         this.description = description;
-        this.venue = venue;
+        this.email = email;
+        this.date = date;
+        this.time = time;
     }
 
     public String getName() {
@@ -36,16 +53,32 @@ public class Event extends AbstractEntity{
         this.description = description;
     }
 
-    public Venue getVenue() {
-        return venue;
+    public String getEmail() {
+        return email;
     }
 
-    public void setVenue(Venue venue) {
-        this.venue = venue;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public String toString(){
-        return name;
+    public Date getDate() {
+        return date;
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+   // @Override
+  // public String toString(){
+   //     return name;
+   // }
 }

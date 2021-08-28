@@ -12,8 +12,8 @@ public class Venue extends AbstractEntity{
 
     private String description;
 
-    @OneToMany
-    private List<Event> events = new ArrayList<>();
+    //@OneToMany
+    //private List<Event> event = new ArrayList<>();
 
     public Venue(){}
 
@@ -38,12 +38,12 @@ public class Venue extends AbstractEntity{
         this.description = description;
     }
 
-    public List<Event> getEvents() {
-        return events;
-    }
-    public void addEvent(Event event){
-        this.events.add(event);
-    }
+    //public List<Event> getEvents() {
+    //    return event;
+    //}
+    //public void addEvent(Event event){
+     //   this.event.add(event);
+   // }
     @Override
     public String toString() {
         return name;
