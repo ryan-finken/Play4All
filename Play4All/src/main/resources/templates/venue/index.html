@@ -12,19 +12,19 @@
 <p>Administrators</p>
 <p>Contact Info</p>
 <p>Create an Event <a href="/event/create">Create</a></p>
-
-<table class="table table-striped">
-    <!--thead-->
+<p>Sportz Events<a href="/event/"> Event List</a></p>
+<!--table class="table table-striped">
+    <thead>
     <tr>
         <th><a href="/event/"> Event List</a></th>
     </tr>
-    <!--/thead-->
+    </thead>
     <th:block th:each="event : ${event}">
         <tr>
-        <td th:text="${event.name}"> <!--th:href="'/event?eventId=' + ${event.id}"--></td>
+        <td th:text="${event.name}"> <th:href="'/event?eventId=' + ${event.id}"></td>
         </tr>
     </th:block>
-</table>
+</table-->
 
 </body>
 </html>
