@@ -14,14 +14,16 @@
 <p>Create an Event <a href="/event/create">Create</a></p>
 
 <table class="table table-striped">
-    <thead>
+    <!--thead-->
     <tr>
-        <th>Event Name</th>
+        <th><a href="/event/"> Event List</a></th>
     </tr>
-    </thead>
-    <tr th:each="event : ${event}">
-        <td><a th:text="${event.name}" th:href="'/event?eventId=' + ${event.id}"></a></td>
-    </tr>
+    <!--/thead-->
+    <th:block th:each="event : ${event}">
+        <tr>
+        <td th:text="${event.name}"> <!--th:href="'/event?eventId=' + ${event.id}"--></td>
+        </tr>
+    </th:block>
 </table>
 
 </body>
