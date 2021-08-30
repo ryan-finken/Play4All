@@ -5,28 +5,50 @@
 <body>
 
 <header th:replace="fragments :: header"></header>
-<table class="table table-striped">
+<div class="container body-content">
+<table class="table table-striped" th:each="event : ${event}">
+    <!--thead-->
     <tr>
-        <th>Name</th>
-        <td th:text="${event.getName()}"></td>
+        <td>Name</td>
+    <!--/tr-->
+    <!--/thead-->
+    <!--tr th:each="event : ${event}"-->
+        <td><a th:text="${event.name}" th:href="'/event?eventId=' + ${event.id}"></a></td>
     </tr>
+    <!--thead-->
     <tr>
-        <th>Description</th>
-        <td th:text="${event.getDescription()}"></td>
+        <td>Description</td>
+    <!--/tr-->
+    <!--/thead-->
+    <!--tr th:each="event : ${event}"-->
+        <td th:text="${event.description}"></td>
     </tr>
+    <!--thead-->
     <tr>
-        <th>Contact Email</th>
-        <td th:text="${event.getEmail()}"></td>
+        <td>Contact Email</td>
+    <!--/tr-->
+    <!--/thead-->
+    <!--tr th:each="event : ${event}"-->
+        <td th:text="${event.email}"></td>
     </tr>
+    <!--thead-->
     <tr>
-        <th>Date</th>
-        <td th:text="${#dates.format(event.getDate(), 'dd MMM yyyy')}"></td>
+        <td>Date</td>
+    <!--/tr-->
+    <!--/thead-->
+    <!--tr th:each="event : ${event}"-->
+        <td th:text="${#dates.format(event.date, 'dd MMM yyyy')}"></td>
     </tr>
-    <tr>
-        <th>Time</th>
-        <td th:text="${#dates.format(event.getTime(), 'hh mm aa')}"></td>
-    </tr>
+    <!--thead-->
+    <!--tr>
+        <td>Time</td-->
+    <!--/tr-->
+    <!--/thead-->
+    <!--tr th:each="event : ${event}">
+        <--td th:text="${#dates.format(event.time, 'hh mm aa')}"><--/--td>
+    <--/--tr-->
 </table>
+</div>
 
 </body>
 </html>
