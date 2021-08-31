@@ -1,12 +1,14 @@
 package org.launchcode.Play4All.data;
 
-import org.launchcode.Play4All.models.User;
+
+import org.launchcode.Play4All.models.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByUsername(String username);
-    //String findByEmail(String email);
+import javax.transaction.Transactional;
+
+
+
+public interface EventRepository extends JpaRepository<Event, Integer> {
 }

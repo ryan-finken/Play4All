@@ -9,17 +9,28 @@
 <h1 th:text="${venue.name}"></h1>
 <p th:text="${venue.description}"></p>
 
+<<<<<<< HEAD
 
 <table class="table table-striped">
+=======
+<p>Description</p>
+<p>Administrators</p>
+<p>Contact Info</p>
+<p>Create an Event <a href="/event/create">Create</a></p>
+<p>Sportz Events<a href="/event/"> Event List</a></p>
+<!--table class="table table-striped">
+>>>>>>> event_controller
     <thead>
     <tr>
-        <th>Event Name</th>
+        <th><a href="/event/"> Event List</a></th>
     </tr>
     </thead>
-    <tr th:each="event : ${events}">
-        <td><a th:href="'/events/detail?eventId=' + ${event.id}" th:text="${event.name}"></a></td>
-    </tr>
-</table>
+    <th:block th:each="event : ${event}">
+        <tr>
+        <td th:text="${event.name}"> <th:href="'/event?eventId=' + ${event.id}"></td>
+        </tr>
+    </th:block>
+</table-->
 
 </body>
 </html>

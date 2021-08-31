@@ -1,7 +1,10 @@
 package org.launchcode.Play4All.data;
 
 import org.launchcode.Play4All.models.Venue;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface VenueRepository extends CrudRepository<Venue, Integer> {
+@Repository
+public interface VenueRepository extends JpaRepository<Venue, Integer> {
 }
