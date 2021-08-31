@@ -1,0 +1,29 @@
+.body-content {
+    margin-top: 72px;
+}
+body{
+    background-color: lightblue;
+
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+.bullets{font-weight:bold
+}
+.nav-item{
+margin-right:5px;
+}
+.nav-link{
+color: white
+}
+.nav-link:hover{
+color: white
+}
