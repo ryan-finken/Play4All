@@ -10,13 +10,16 @@
   <tr>
     <th>User</th>
     <th>Contact Email</th>
+    <th>Bio</th>
   </tr>
   </thead>
   <tr>
     <td th:text="${user.username}"></td>
     <td th:text="${user.email}"></td>
+    <td th:text="${user.bio}"></td>
   </tr>
 </table>
+<a th:href="'/user/edit-bio?userId=' + ${user.id}">Edit Bio</a>
 
 </body>
 </html>

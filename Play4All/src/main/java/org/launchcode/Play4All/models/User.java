@@ -19,6 +19,8 @@ public class User extends AbstractEntity{
     @NotNull
     private String pwHash;
 
+    private String bio = "";
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User(){}
@@ -36,6 +38,14 @@ public class User extends AbstractEntity{
 
 
     public String getEmail(){ return email; }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     //public void setEmail(String email) {
     //    this.email = email;
