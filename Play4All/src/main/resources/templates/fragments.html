@@ -19,16 +19,20 @@
 <body th:fragment="body">
 <header th:fragment="header">
     <article>
-        <img th:src = "@{/images/play4AllTransparent.png}"/>
+        <img height = "100" width = "200" th:src = "@{/images/play4AllTransparent.png}"/>
+        <ul class="nav" style = "float:right;">
+            <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+
     </article>
 
     <ul class="nav">
         <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/">Play4All Home Page</a></li>
-        <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/login">Login</a></li>
         <!-- TODO: for now, this venueId is hardcoded as 100 since we don't yet have multiple Venues. We should change it once we add that feature -->
         <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/venue/">Venue Page</a></li>
         <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/profile">Personal Profile Page</a></li>
-        <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/logout">Logout</a></li>
+
     </ul>
 
 
