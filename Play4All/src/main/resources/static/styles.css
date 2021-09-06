@@ -3,7 +3,6 @@
 }
 body{
     background-color: lightblue;
-
 }
 
 td, th {
@@ -16,14 +15,20 @@ th {
 h1 {
     text-align: center;
 }
-.bullets{font-weight:bold
+.bullets{
+    font-weight:bold
 }
 .nav-item{
-margin-right:5px;
+    margin-right:5px;
 }
 .nav-link{
-color: white
+    color: white
 }
 .nav-link:hover{
-color: white
+    color: white
+}
+.border1{
+    border-style: solid;
+    padding: 10px;
+    margin-top: 5px;
 }
