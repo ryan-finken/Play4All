@@ -13,31 +13,31 @@
     <!--/tr-->
     <!--/thead-->
     <!--tr th:each="event : ${event}"-->
-        <td><a th:text="${event.name}" th:href="'/event?eventId=' + ${event.id}"></a></td>
+        <td th:each="event : ${event}"><a th:text="${event.name}" th:href="'/event/details?eventId=' + ${event.id}"></a></td>
     </tr>
     <!--thead-->
-    <tr>
+    <!--tr>
         <td>Description</td>
-    <!--/tr-->
+    </tr-->
     <!--/thead-->
     <!--tr th:each="event : ${event}"-->
-        <td th:text="${event.description}"></td>
+        <!--td th:text="${event.description}"></td>
     </tr>
-    <!--thead-->
-    <tr>
+    <thead-->
+    <!--tr>
         <td>Contact Email</td>
-    <!--/tr-->
+    </tr-->
     <!--/thead-->
     <!--tr th:each="event : ${event}"-->
-        <td th:text="${event.email}"></td>
+        <!--td th:text="${event.email}"></td>
     </tr>
-    <!--thead-->
+    <thead-->
     <tr>
         <td>Date</td>
-    <!--/tr-->
+
     <!--/thead-->
     <!--tr th:each="event : ${event}"-->
-        <td th:text="${#dates.format(event.date, 'dd MMM yyyy')}"></td>
+        <td th:each="event : ${event}" th:text="${#dates.format(event.date, 'dd MMM yyyy')}"></td>
     </tr>
     <!--thead-->
     <!--tr>

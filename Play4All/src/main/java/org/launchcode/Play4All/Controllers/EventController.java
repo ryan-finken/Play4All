@@ -4,6 +4,7 @@ package org.launchcode.Play4All.Controllers;
 import org.launchcode.Play4All.data.EventRepository;
 import org.launchcode.Play4All.data.VenueRepository;
 import org.launchcode.Play4All.models.Event;
+import org.launchcode.Play4All.models.User;
 import org.launchcode.Play4All.models.Venue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,5 +65,14 @@ public class EventController {
 
         eventRepository.save(newEvent);
         return "redirect:";
+    }
+
+    @GetMapping("details")
+    public String displayUserDetails(@RequestParam Integer eventId, Model model) {
+        Optional<Event> result = eventRepository.findById(eventId);
+        Event event = result.get();
+        model.addAttribute("event", event);
+
+        return "event/details";
     }
 }

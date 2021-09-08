@@ -19,7 +19,7 @@ public class Event extends AbstractEntity{
 
     private String email;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     @DateTimeFormat(pattern = "HH:mm")
