@@ -19,11 +19,21 @@
 <body th:fragment="body">
 <header th:fragment="header">
     <article>
-        <img height = "100" width = "200" th:src = "@{/images/play4AllTransparent.png}"/>
-        <ul class="nav" style = "float:right;">
-            <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/login">Login</a></li>
-            <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/logout">Logout</a></li>
-        </ul>
+        <img height = "150" width = "300" th:src = "@{/images/Play4All_Transparent_Cropped.png}"/>
+
+
+        <div th:if ="${session.user != null and session.user gt 0}">
+            <!-- if the session contains a key named "user" and the value of "user" is greater than 0 -->
+            <ul class="nav" style = "float:right;">
+                <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div th:if ="${session.user == null or session.user lt 1}">
+            <!-- if the session does not contain a key named "user" or the value of "user" is less than 1 -->
+            <ul class="nav" style = "float:right;">
+                <li class="nav-item btn btn-success btn-outline-dark"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+        </div>
 
     </article>
 
