@@ -23,36 +23,21 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/css", "/index");
-
-    private static final List<String> blacklist = Arrays.asList("/admin");
-
-    //private static boolean isWhitelisted(String path) {
-     //   for (String pathRoot : whitelist) {
-    //        if (path.startsWith(pathRoot)) {
-    //            return true;
-    //        }
-     //   }
-     //   return false;
-   // }
+    private static final List<String> blacklist = Arrays.asList("/user", "/venue", "/event");
 
     private static boolean notBlackListed(String path){
         for (String pathRoot : blacklist){
-            if (!path.startsWith(pathRoot)){
-                return true;
+            if (path.startsWith(pathRoot)){
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws IOException {
-
-       // if (isWhitelisted(request.getRequestURI())) {
-       //     return true;
-       // }
 
         if (notBlackListed(request.getRequestURI())){
             return true;
