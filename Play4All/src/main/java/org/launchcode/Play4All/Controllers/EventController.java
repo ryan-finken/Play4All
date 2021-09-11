@@ -75,4 +75,24 @@ public class EventController {
 
         return "event/details";
     }
+    @GetMapping("edit-event")
+    public String displayEditBioForm(@RequestParam Integer eventId, Model model) {
+        Optional<Event> result = eventRepository.findById(eventId);
+        Event event = result.get();
+        model.addAttribute("event", event);
+
+        return "event/edit-event";
+
+    }
+
+    @PostMapping("edit-event")
+    public String processEditBioForm(@RequestParam int id, @RequestParam String description) {
+
+        Optional<Event> result = eventRepository.findById(id);
+        Event event = result.get();
+        event.setDescription(description);
+        eventRepository.save(event);
+
+        return "redirect:details?eventId=" + id;
+    }
 }

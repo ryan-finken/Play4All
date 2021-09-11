@@ -11,7 +11,7 @@
         <th>Event</th>
         <th>Contact Email</th>
         <th>Event Info</th>
-        <th>Time</th>
+        <th>Date</th>
     </tr>
     </thead>
     <tr>
@@ -22,7 +22,7 @@
     </tr>
 </table>
 <div>
-<a th:href="'/event/edit?eventId=' + ${event.id}">Edit Event</a>
+<a th:href="'/event/edit-event?eventId=' + ${event.id}">Edit Event</a>
 </div>
 <div>
 <a th:href="'/event/register?eventId=' + ${event.id}">Register For an Event!</a>
