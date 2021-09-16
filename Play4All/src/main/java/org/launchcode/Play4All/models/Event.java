@@ -26,7 +26,7 @@ public class Event extends AbstractEntity{
     @DateTimeFormat(pattern = "h:mm a")
     private LocalTime time;
 
-    @ManyToMany(mappedBy = "event")
+    @ManyToMany//(mappedBy = "event")
     private List<User> userList = new ArrayList<>();
 
 

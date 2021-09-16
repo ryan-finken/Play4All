@@ -27,7 +27,7 @@ public class User extends AbstractEntity{
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @ManyToMany
-    private List<Event> event = new ArrayList<>();
+    private List<Event> eventList = new ArrayList<>();
 
     public User(){}
 
@@ -40,6 +40,10 @@ public class User extends AbstractEntity{
 
     public String getUsername(){
         return username;
+    }
+
+    public String getDisplayName(){
+        return username + " ";
     }
 
     public String getEmail(){ return email; }
@@ -56,11 +60,11 @@ public class User extends AbstractEntity{
         return encoder.matches(password, pwHash);
     }
 
-    public List<Event> getEvent() {
-        return event;
+    public List<Event> getEventList() {
+        return eventList;
     }
 
-    public void setEvent(List<Event> event) {
-        this.event = event;
+    public void setEvent(List<Event> eventList) {
+        this.eventList = eventList;
     }
 }
