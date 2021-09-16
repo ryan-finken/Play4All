@@ -12,13 +12,19 @@
         <th>Contact Email</th>
         <th>Event Info</th>
         <th>Date</th>
+        <th>Time</th>
+        <th>Users</th>
     </tr>
     </thead>
     <tr>
         <td th:text="${event.name}"></td>
         <td th:text="${event.email}"></td>
         <td th:text="${event.description}"></td>
-        <td th:text="${#dates.format(event.date, 'dd MM yyyy')}"></td>
+        <td th:text="${#dates.format(event.date, 'dd MMM yyyy')}"></td>
+        <!--td th:text="${#dates.format(event.time, 'h:mm a')}"></td-->
+        <td>
+            <span th:each="user : ${event.userList}" th:text="${user.displayName}"></span>
+        </td>
     </tr>
 </table>
 <div>
