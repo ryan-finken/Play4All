@@ -4,9 +4,12 @@ package org.launchcode.Play4All.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity{
@@ -23,6 +26,9 @@ public class User extends AbstractEntity{
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    @ManyToMany
+    private List<Event> event = new ArrayList<>();
+
     public User(){}
 
     public User(String username, String email, String password){
@@ -36,7 +42,6 @@ public class User extends AbstractEntity{
         return username;
     }
 
-
     public String getEmail(){ return email; }
 
     public String getBio() {
@@ -47,11 +52,15 @@ public class User extends AbstractEntity{
         this.bio = bio;
     }
 
-    //public void setEmail(String email) {
-    //    this.email = email;
-   // }
-
     public boolean isMatchingPassword(String password){
         return encoder.matches(password, pwHash);
+    }
+
+    public List<Event> getEvent() {
+        return event;
+    }
+
+    public void setEvent(List<Event> event) {
+        this.event = event;
     }
 }

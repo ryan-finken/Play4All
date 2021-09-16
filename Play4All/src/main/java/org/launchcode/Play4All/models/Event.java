@@ -3,11 +3,12 @@ package org.launchcode.Play4All.models;
 //import org.apache.tomcat.jni.Time;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Event extends AbstractEntity{
@@ -22,8 +23,11 @@ public class Event extends AbstractEntity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
-    @DateTimeFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "h:mm a")
     private LocalTime time;
+
+    @ManyToMany(mappedBy = "event")
+    private List<User> userList = new ArrayList<>();
 
 
 
@@ -77,7 +81,19 @@ public class Event extends AbstractEntity{
         this.time = time;
     }
 
-   // @Override
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void addUser(User user){
+        this.userList.add(user);
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    // @Override
   // public String toString(){
    //     return name;
    // }

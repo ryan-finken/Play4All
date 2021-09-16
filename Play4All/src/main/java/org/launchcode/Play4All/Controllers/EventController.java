@@ -2,10 +2,12 @@ package org.launchcode.Play4All.Controllers;
 
 
 import org.launchcode.Play4All.data.EventRepository;
+import org.launchcode.Play4All.data.UserRepository;
 import org.launchcode.Play4All.data.VenueRepository;
 import org.launchcode.Play4All.models.Event;
 import org.launchcode.Play4All.models.User;
 import org.launchcode.Play4All.models.Venue;
+import org.launchcode.Play4All.models.dto.UserEventDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class EventController {
 
    // @Autowired
    // private VenueRepository venueRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping
     public String displayEvents(@RequestParam(required = false) Integer eventId, Model model) {
@@ -94,5 +99,34 @@ public class EventController {
         eventRepository.save(event);
 
         return "redirect:details?eventId=" + id;
+    }
+
+    @GetMapping("register")
+    public String displayRegisterForm(@RequestParam Integer eventId, Model model){
+        Optional<Event> result = eventRepository.findById(eventId);
+        Event event = result.get();
+        model.addAttribute("user", userRepository.findAll());
+        UserEventDTO eventUser = new UserEventDTO();
+        eventUser.setEvent(event);
+        model.addAttribute("eventUser", eventUser);
+        return "event/register";
+    }
+
+    @PostMapping("register")
+    public String processRegisterForm(@ModelAttribute @Valid UserEventDTO eventUser,
+                                    Errors errors,
+                                    Model model){
+
+        if (!errors.hasErrors()) {
+            Event event = eventUser.getEvent();
+            User user = eventUser.getUser();
+            if (!event.getUserList().contains(user)){
+                event.addUser(user);
+                eventRepository.save(event);
+            }
+            return "redirect:details?eventId=" + event.getId();
+        }
+
+        return "redirect:event/register";
     }
 }
