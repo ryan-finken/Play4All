@@ -23,7 +23,7 @@ public class Event extends AbstractEntity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
-    @DateTimeFormat(pattern = "h:mm a")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime time;
 
     @ManyToMany//(mappedBy = "event")
