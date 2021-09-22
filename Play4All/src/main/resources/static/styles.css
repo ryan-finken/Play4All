@@ -32,3 +32,18 @@ h1 {
     padding: 10px;
     margin-top: 5px;
 }
+.boldheader{
+    font-weight:bold;
+    background:white;
+}
+.eventfont{
+    color:purple;
+}
+.table{
+    background:#a5dab1;
+}
+#bio{
+    height:300px;
+    width:600px;
+    margin-top:25px;
+}
