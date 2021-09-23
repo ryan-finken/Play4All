@@ -17,13 +17,6 @@
         <td><a class="eventfont" th:text="${event.name}" th:href="'/event/details?eventId=' + ${event.id}"></a></td>
         <td th:text="${#dates.format(event.date, 'dd MMM yyyy')}"></td>
     </tr>
-    <!--tr>
-        <td>Time</td-->
-    <!--/tr-->
-    <!--/thead-->
-    <!--tr th:each="event : ${event}">
-        <--td th:text="${#dates.format(event.time, 'hh mm aa')}"><--/--td>
-    <--/--tr-->
 
 </table>
 </div>

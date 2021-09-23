@@ -62,13 +62,6 @@ public class AuthenticationController {
             model.addAttribute("title", "Register");
             return "register";
         }
-      //  String existingEmail = userRepository.findByEmail(registerFormDTO.getEmail());
-
-      //  if(existingEmail !=null){
-       //     errors.rejectValue("email", "email.alreadyexists", "A user with this email already exists");
-       //     model.addAttribute("title", "Register");
-       //     return "register";
-      //  }
 
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
@@ -83,7 +76,6 @@ public class AuthenticationController {
         setUserInSession(request.getSession(), newUser);
 
         return "redirect:";
-       // return "login";
 
     }
 
@@ -111,13 +103,6 @@ public class AuthenticationController {
             model.addAttribute("title", "Log In");
             return "login";
         }
-
-       // String theEmail = userRepository.findByEmail(loginFormDTO.getEmail());
-      //  if(theEmail == null) {
-      //      errors.rejectValue("email", "email.invalid", "The given email is invalid");
-      //      model.addAttribute("title", "Log In");
-      //      return "login";
-      //  }
 
         String password = loginFormDTO.getPassword();
 

@@ -3,10 +3,8 @@ package org.launchcode.Play4All.Controllers;
 
 import org.launchcode.Play4All.data.EventRepository;
 import org.launchcode.Play4All.data.UserRepository;
-import org.launchcode.Play4All.data.VenueRepository;
 import org.launchcode.Play4All.models.Event;
 import org.launchcode.Play4All.models.User;
-import org.launchcode.Play4All.models.Venue;
 import org.launchcode.Play4All.models.dto.UserEventDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,9 +21,6 @@ public class EventController {
 
     @Autowired
     private EventRepository eventRepository;
-
-   // @Autowired
-   // private VenueRepository venueRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -55,8 +50,6 @@ public class EventController {
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
-       // model.addAttribute("categories", eventRepository.findAll());
-       // model.addAttribute("name", eventRepository.)
         return "event/create";
     }
 
