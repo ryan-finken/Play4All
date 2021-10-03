@@ -6,31 +6,19 @@
 
 <header th:replace="fragments :: header"></header>
 
-<h1>Le Best Sports Plex </h1>
-<h3>About Us</h3>
-<h5>One of the St. Louis area's premier sports complexes,
-    we offer a variety of recreational sports leagues for all levels of athletes.
-    Whether you are looking for a fun league to stay in shape,
-    an off-season league to keep you at the top of your game,
-    or a sport to introduce the kids to the value of teamwork, we have you covered!
-    Check out our schedule of events and contact us today to get signed up.</h5>
-<div class="container body-content">
-<table class="table">
-    <th>Contacts</th>
+<h1>Venues</h1>
+<table class="table table-striped" >
+    <thead>
     <tr>
-        <td>Manager</td>
-        <td>Brock A. Star</td>
-        <td> bastar@lebest.com</td>
-        </tr>
-    <tr>
-        <td>Assistant Manager</td>
-        <td>T. R. McCoy</td>
-        <td>trmccoy@lebest.com</td>
-        </tr>
-</table>
-</div>
-<p>Create an Event <a href="/event/create">Create</a></p>
-<p>Sportz Events<a href="/event/"> Event List</a></p>
+        <td class="boldheader">Name</td>
+        <td class="boldheader">City</td>
+    </tr>
+    </thead>
+    <tr th:each="venue : ${venues}">
+        <td><a th:text="${venue.name}" th:href="'/venue/details?venueId=' + ${venue.id}"></a></td>
+        <td th:text="${venue.city}"></td>
+    </tr>
 
+</table>
 </body>
 </html>

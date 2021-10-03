@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("venue")
@@ -17,13 +16,8 @@ public class VenueController {
     private VenueRepository venueRepository;
 
     @GetMapping
-    public String displayVenue(@RequestParam(required = false) Integer venueId, Model model) {
-
-        if (venueId == null) {
-            model.addAttribute("title", "Venue");
-            model.addAttribute("venue", venueRepository.findAll());
-        }
-
+    public String displayAllVenues(Model model) {
+        model.addAttribute("venues", venueRepository.findAll());
         return "venue/index";
     }
 
