@@ -24,7 +24,7 @@
 
     <div>
         <article><h3>Registered Players</h3>
-            <span><a th:each="user : ${event.userList}" th:text="${user.displayName}" th:href="'/user/details?userId=' + ${user.id}"></a></span>
+            <span><a th:each="user : ${event.users}" th:text="${user.displayName}" th:href="'/user/details?userId=' + ${user.id}"></a></span>
         </article>
     </div>
 </main>

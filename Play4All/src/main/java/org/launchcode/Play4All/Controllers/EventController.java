@@ -113,7 +113,7 @@ public class EventController {
         if (!errors.hasErrors()) {
             Event event = eventUser.getEvent();
             User user = eventUser.getUser();
-            if (!event.getUserList().contains(user)){
+            if (!event.getUsers().contains(user)){
                 event.addUser(user);
                 eventRepository.save(event);
             }
