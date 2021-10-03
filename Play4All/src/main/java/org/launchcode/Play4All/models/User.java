@@ -25,7 +25,7 @@ public class User extends AbstractEntity{
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     private List<Event> events = new ArrayList<>();
 
     public User(){}
