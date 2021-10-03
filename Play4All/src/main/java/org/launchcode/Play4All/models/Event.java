@@ -23,10 +23,11 @@ public class Event extends AbstractEntity{
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime time;
 
+    @ManyToOne
+    private Venue venue;
+
     @ManyToMany
     private List<User> users = new ArrayList<>();
-
-
 
     public Event(){ }
 
@@ -76,6 +77,10 @@ public class Event extends AbstractEntity{
 
     public void setTime(LocalTime time) {
         this.time = time;
+    }
+
+    public Venue getVenue() {
+        return venue;
     }
 
     public List<User> getUsers() {
