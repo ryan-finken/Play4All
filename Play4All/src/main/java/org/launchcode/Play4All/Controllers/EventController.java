@@ -95,31 +95,17 @@ public class EventController {
     }
 
     @GetMapping("register")
-    public String displayRegisterForm(@RequestParam Integer eventId, Model model){
-        Optional<Event> result = eventRepository.findById(eventId);
-        Event event = result.get();
-        model.addAttribute("user", userRepository.findAll());
-        UserEventDTO eventUser = new UserEventDTO();
-        eventUser.setEvent(event);
-        model.addAttribute("eventUser", eventUser);
-        return "event/register";
-    }
-
-    @PostMapping("register")
-    public String processRegisterForm(@ModelAttribute @Valid UserEventDTO eventUser,
-                                    Errors errors,
-                                    Model model){
-
-        if (!errors.hasErrors()) {
-            Event event = eventUser.getEvent();
-            User user = eventUser.getUser();
-            if (!event.getUsers().contains(user)){
-                event.addUser(user);
-                eventRepository.save(event);
-            }
-            return "redirect:details?eventId=" + event.getId();
+    public String displayRegisterForm(@RequestParam Integer eventId, @RequestParam Integer userId){
+        Optional<Event> eventResult = eventRepository.findById(eventId);
+        Event event = eventResult.get();
+        Optional<User> userResult = userRepository.findById(userId);
+        User user = userResult.get();
+        if (!event.getUsers().contains(user)) {
+            event.addUser(user);
+            eventRepository.save(event);
         }
 
-        return "redirect:event/register";
+        return "redirect:details?eventId=" + eventId;
     }
+
 }

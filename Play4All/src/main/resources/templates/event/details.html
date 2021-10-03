@@ -31,7 +31,7 @@
 
 <aside>
     <div>
-        <a th:href="'/event/register?eventId=' + ${event.id}">Register Players For an Event!</a>
+        <a th:href="'/event/register?eventId=' + ${event.id} + '&userId=' + ${session.user}">Register for this event!</a>
     </div>
     <div>
         <a href="/event">Go Back To Events List</a>
