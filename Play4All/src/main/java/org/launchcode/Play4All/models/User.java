@@ -6,7 +6,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +26,11 @@ public class User extends AbstractEntity{
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @ManyToMany
-    private List<Event> eventList = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 
     public User(){}
 
     public User(String username, String email, String password){
-        //this();
         this.username = username;
         this.email = email;
         this.pwHash = encoder.encode(password);
@@ -60,11 +58,11 @@ public class User extends AbstractEntity{
         return encoder.matches(password, pwHash);
     }
 
-    public List<Event> getEventList() {
-        return eventList;
+    public List<Event> getEvents() {
+        return events;
     }
 
     public void setEvent(List<Event> eventList) {
-        this.eventList = eventList;
+        this.events = eventList;
     }
 }
