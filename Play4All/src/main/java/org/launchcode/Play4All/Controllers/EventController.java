@@ -3,9 +3,12 @@ package org.launchcode.Play4All.Controllers;
 
 import org.launchcode.Play4All.data.EventRepository;
 import org.launchcode.Play4All.data.UserRepository;
+import org.launchcode.Play4All.data.VenueRepository;
 import org.launchcode.Play4All.models.Event;
 import org.launchcode.Play4All.models.User;
+import org.launchcode.Play4All.models.Venue;
 import org.launchcode.Play4All.models.dto.UserEventDTO;
+import org.launchcode.Play4All.models.dto.VenueEventDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("event")
 public class EventController {
+
+    @Autowired
+    private VenueRepository venueRepository;
 
     @Autowired
     private EventRepository eventRepository;
@@ -47,21 +53,22 @@ public class EventController {
 
 
     @GetMapping("create")
-    public String displayCreateEventForm(Model model) {
-        model.addAttribute("title", "Create Event");
-        model.addAttribute(new Event());
+    public String displayCreateEventForm(@RequestParam Integer venueId, Model model) {
+        Optional<Venue> result = venueRepository.findById(venueId);
+        VenueEventDTO venueEvent = new VenueEventDTO();
+        venueEvent.setVenue(result.get());
+        venueEvent.setEvent(new Event());
+        model.addAttribute("venueEvent", venueEvent);
         return "event/create";
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@ModelAttribute @Valid Event newEvent,
-                                         Errors errors, Model model) {
-        if(errors.hasErrors()) {
-            model.addAttribute("title", "Create Event");
-            return "event/create";
-        }
-
-        eventRepository.save(newEvent);
+    public String processCreateEventForm(@ModelAttribute VenueEventDTO venueEvent, Model model) {
+        Venue venue = venueEvent.getVenue();
+        Event event = venueEvent.getEvent();
+        venue.addEvent(event);
+        eventRepository.save(event);
+        venueRepository.save(venue);
         return "redirect:";
     }
 

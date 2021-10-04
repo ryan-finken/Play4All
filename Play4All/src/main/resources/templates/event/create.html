@@ -6,35 +6,36 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
+    <input type="hidden" th:field="${venueEvent.venue}" />
     <div class="form-group">
         <label>Name
-            <input th:field="${event.name}" class="form-control">
+            <input th:field="${venueEvent.event.name}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.name}"></p>
+        <p class="error" th:errors="${venueEvent.event.name}"></p>
     </div>
     <div class="form-group">
         <label>Description
-            <input th:field="${event.description}" class="form-control">
+            <input th:field="${venueEvent.event.description}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.description}"></p>
+        <p class="error" th:errors="${venueEvent.event.description}"></p>
     </div>
     <div class="form-group">
         <label>Email
-            <input th:field="${event.email}" class="form-control" type="email">
+            <input th:field="${venueEvent.event.email}" class="form-control" type="email">
         </label>
-        <p class="error" th:errors="${event.email}"></p>
+        <p class="error" th:errors="${venueEvent.event.email}"></p>
     </div>
     <div class="form-group">
         <label>Date
-            <input type="date" th:field="${event.date}" class="form-control">
+            <input type="date" th:field="${venueEvent.event.date}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.date}"></p>
+        <p class="error" th:errors="${venueEvent.event.date}"></p>
     </div>
     <div class="form-group">
         <label>Time
-            <input type="time" th:field="${event.time}" class="form-control">
+            <input type="time" th:field="${venueEvent.event.time}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.time}"></p>
+        <p class="error" th:errors="${venueEvent.event.time}"></p>
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
